@@ -249,6 +249,90 @@ window.addEventListener("load", function () {
     setTimeout(closeSplash, 3000);
 })();
 </script>
+
+  <script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const pages = document.querySelectorAll(".page");
+    const links = document.querySelectorAll(".nav a");
+
+    function bukaHalaman(namaHalaman) {
+
+        const halaman = document.getElementById(namaHalaman);
+
+        if (!halaman) {
+            console.log("Halaman tidak ditemukan:", namaHalaman);
+            return;
+        }
+
+        // Sembunyikan semua halaman
+        pages.forEach(function (page) {
+            page.classList.remove("active");
+        });
+
+        // Tampilkan halaman yang dipilih
+        halaman.classList.add("active");
+
+        // Atur menu aktif
+        links.forEach(function (link) {
+            link.classList.remove("active");
+
+            if (link.dataset.page === namaHalaman) {
+                link.classList.add("active");
+            }
+        });
+
+        // Scroll ke atas
+        window.scrollTo(0, 0);
+    }
+
+    // Saat menu diklik
+    links.forEach(function (link) {
+
+        link.addEventListener("click", function (event) {
+
+            event.preventDefault();
+
+            const namaHalaman = this.dataset.page;
+
+            bukaHalaman(namaHalaman);
+
+            history.pushState(
+                null,
+                "",
+                "#" + namaHalaman
+            );
+
+        });
+
+    });
+
+    // Baca halaman dari URL
+    function bukaDariURL() {
+
+        let namaHalaman = window.location.hash.substring(1);
+
+        if (!namaHalaman) {
+            namaHalaman = "home";
+        }
+
+        bukaHalaman(namaHalaman);
+    }
+
+    window.addEventListener("hashchange", bukaDariURL);
+
+    bukaDariURL();
+
+});
+</script>
+
+  <script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    // kode navigasi di atas
+
+});
+</script>
   
 </body>
 </html>
