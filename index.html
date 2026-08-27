@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b6b4b">
+  <meta name="description" content="PlasticBank Indonesia — platform pemantauan bank sampah, risiko sampah plastik, dan pelaporan lingkungan.">
+  <title>PlasticBank Indonesia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#f5f8f4;color:#17362c;font-family:"DM Sans",sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer}a{text-decoration:none;color:inherit}.splash{position:fixed;inset:0;background:#073d2b;z-index:9999;display:grid;place-items:center;overflow:hidden;color:#fff}.splash-content{text-align:center;z-index:2;animation:rise .8s ease}.brand-mark{width:76px;height:76px;border:1px solid #7fd3a5;border-radius:24px;display:grid;place-items:center;font-size:38px;margin:auto auto 18px;background:#0a5a40}.splash-title{font:800 40px Manrope}.splash-title span,.logo>span span{color:#79d49b}.splash p{color:#b6d9c8}.loader{height:3px;width:160px;background:#2c654f;margin:30px auto;border-radius:9px;overflow:hidden}.loader i{display:block;height:100%;width:45%;background:#8be0ac;animation:load 1.3s infinite}.splash-orb{position:absolute;border-radius:50%;filter:blur(3px);opacity:.3}.orb1{width:500px;height:500px;background:#1b9c69;right:-160px;top:-180px}.orb2{width:360px;height:360px;background:#b2d65f;left:-180px;bottom:-130px}@keyframes load{to{transform:translateX(350%)}}@keyframes rise{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:none}}.topbar{height:74px;position:sticky;top:0;z-index:1000;background:rgba(250,252,249,.9);backdrop-filter:blur(16px);border-bottom:1px solid #dce8df;display:flex;align-items:center;padding:0 5vw;justify-content:space-between}.logo{font:800 19px Manrope;display:flex;align-items:center;gap:9px}.logo-icon{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:11px;background:#0b6b4b;color:#c8f0d5}.desktop-nav{display:flex;gap:7px}.desktop-nav a{padding:10px 15px;border-radius:10px;color:#557167;font-size:14px}.desktop-nav a:hover,.desktop-nav a.active{background:#e6f2e9;color:#0a6546;font-weight:700}.mobile-menu{display:none;border:0;background:none;font-size:22px}.page{display:none;max-width:1280px;margin:auto;padding:55px 5vw 80px}.page.active{display:block}.hero{min-height:560px;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:40px}.eyebrow{font-size:11px;letter-spacing:2px;color:#38815f;font-weight:800}.pulse{width:7px;height:7px;display:inline-block;background:#50b879;border-radius:50%;box-shadow:0 0 0 5px #dff1e5;margin-right:9px}.hero h1{font:800 clamp(48px,6vw,76px)/1.02 Manrope;letter-spacing:-3px;margin:18px 0}.hero h1 em{font-style:normal;color:#3b9a68}.lead{font-size:17px;line-height:1.75;color:#637a70;max-width:620px}.hero-actions{display:flex;gap:12px;margin:30px 0}.btn{border:0;border-radius:12px;padding:13px 18px;font-weight:700}.btn-primary{background:#0b6b4b;color:white;box-shadow:0 8px 20px #0b6b4b25}.btn-primary:hover{background:#07583e;transform:translateY(-1px)}.btn-ghost{background:#fff;border:1px solid #d8e6dc;color:#256448}.btn-soft{background:#e7f2ea;color:#236d4f}.full{width:100%}.hero-trust{font-size:12px;color:#84968f}.hero-trust span{color:#53ae77}.hero-visual{height:500px;position:relative;display:grid;place-items:center}.leaf-card{width:min(430px,90%);height:420px;border-radius:48% 52% 46% 54%/44% 42% 58% 56%;background:linear-gradient(145deg,#d7f0d7,#72b98a);position:relative;box-shadow:30px 35px 80px #3c8e652c;overflow:hidden;padding:54px;color:#114c38}.leaf-card:before{content:"";position:absolute;width:240px;height:240px;border:1px solid #ffffff66;border-radius:50%;right:-60px;top:-40px}.mini-label{font-size:10px;letter-spacing:2px;font-weight:800}.big-number{font:800 62px Manrope;margin-top:95px;letter-spacing:-3px}.muted{font-size:13px;color:#376d58}.mini-bars{height:70px;display:flex;align-items:end;gap:9px;margin-top:35px}.mini-bars i{width:13px;background:#2b7c58;border-radius:5px 5px 0 0;opacity:.6}.map-dot{position:absolute;width:12px;height:12px;background:#f5c45e;border:3px solid #fff;border-radius:50%;box-shadow:0 0 0 7px #ffffff44}.d1{right:28%;top:36%}.d2{right:15%;top:58%;background:#e86f5e}.d3{left:27%;bottom:25%;background:#fff}.floating-stat{position:absolute;right:0;bottom:35px;background:#fff;border:1px solid #dbe8df;border-radius:18px;padding:17px 22px;box-shadow:0 18px 45px #164f3920}.floating-stat b{display:block;font:800 24px Manrope}.floating-stat span{font-size:12px;color:#74877f}.section-head{display:flex;align-items:end;justify-content:space-between;margin:35px 0 20px}.section-head h2,.page-title h1{font:800 34px Manrope;margin:8px 0}.text-btn{border:0;background:none;color:#1c7952;font-weight:700}.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.stat-card{background:#fff;border:1px solid #dfebe3;border-radius:18px;padding:20px;display:flex;gap:14px;box-shadow:0 8px 30px #28563d08}.stat-icon{width:42px;height:42px;display:grid;place-items:center;border-radius:13px;background:#e7f3ea;color:#277952;font-size:20px}.stat-card small{display:block;color:#7a8d85;font-size:12px}.stat-card strong{display:block;font:800 20px Manrope;margin:6px 0}.stat-card strong i{font:400 10px "DM Sans";color:#8a9a94}.trend{font-size:10px;color:#4d9b6f}.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:65px}.feature-card{border-radius:24px;padding:30px;min-height:250px;cursor:pointer;transition:.25s;position:relative;overflow:hidden}.feature-card:hover{transform:translateY(-4px)}.map-feature{background:#dff0df}.report-feature{background:#e9eee6}.bank-feature{background:#d9ebe6}.feature-top{display:flex;justify-content:space-between;color:#618073;font-size:12px}.round-icon{width:42px;height:42px;border-radius:50%;background:#fff8;display:grid;place-items:center;color:#176846;font-size:18px}.feature-card h3{font:800 25px Manrope;margin:40px 0 8px}.feature-card p{color:#5f766b;font-size:14px;line-height:1.6;max-width:330px}.feature-link{position:absolute;bottom:25px;font-weight:800;font-size:13px;color:#176846}.source-note{font-size:11px;color:#87958f;margin-top:20px}.page-title{display:flex;align-items:end;justify-content:space-between;margin-bottom:28px}.page-title p{color:#71857b;margin:0}.page-title h1{font-size:42px;letter-spacing:-1px}.page-title select{border:1px solid #d7e4dc;background:#fff;padding:11px 14px;border-radius:10px}.kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.kpi{background:#0b6044;color:#e9f7ee;border-radius:18px;padding:22px}.kpi span,.kpi small{display:block;color:#a9d1bc;font-size:12px}.kpi b{display:block;font:800 31px Manrope;margin:7px 0}.chart-grid{display:grid;grid-template-columns:1fr 1.25fr;gap:18px;margin-top:18px}.panel{background:#fff;border:1px solid #dfebe3;border-radius:18px;padding:22px;box-shadow:0 7px 30px #28563d07}.panel h3{font:800 17px Manrope;margin:0}.panel p{font-size:12px;color:#7b8d86;margin:5px 0 0}.panel-head{display:flex;justify-content:space-between;align-items:flex-start}.wide{grid-column:1/-1}.chart-grid canvas{max-height:290px;margin-top:18px}.donut-wrap{position:relative;max-width:280px;margin:10px auto}.donut-center{position:absolute;inset:0;display:grid;place-content:center;text-align:center;pointer-events:none}.donut-center b{font:800 14px Manrope}.donut-center span{font-size:20px;font-weight:800;color:#277952}.legend{font-size:11px;color:#73857e;display:flex;gap:6px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;display:inline-block}.high{background:#e96c55}.med{background:#e7b951}.map-controls{display:flex;gap:8px}.map-shell{height:600px;position:relative;border-radius:22px;overflow:hidden;border:1px solid #dbe8df}.map-canvas,#mapCanvas{height:100%;width:100%}.map-legend{position:absolute;z-index:500;right:15px;bottom:15px;background:#fffffff2;border:1px solid #dce7df;border-radius:13px;padding:14px;display:grid;gap:7px;font-size:11px;box-shadow:0 8px 30px #0001}.map-legend span{display:flex;align-items:center;gap:7px}.map-legend small{color:#84938d;margin-top:4px}.risk-dot{width:9px;height:9px;border-radius:50%}.r-low{background:#62b886}.r-med{background:#e6b750}.r-high{background:#e66d55}.map-bottom{display:grid;grid-template-columns:1.4fr 1fr;gap:18px;margin-top:18px}.priority{display:flex;justify-content:space-between;padding:13px 0;border-bottom:1px solid #edf2ee}.priority:last-child{border:0}.priority b{font-size:13px}.risk-label{font-size:10px;padding:4px 7px;border-radius:20px;background:#fff0e9;color:#b64e3e}.tip{display:flex;gap:13px;padding:13px 0;border-bottom:1px solid #edf2ee}.tip span{font:800 12px Manrope;color:#4a9a6e}.tip p{margin:0;line-height:1.5}.filter-bar{display:flex;gap:9px;margin-bottom:14px}.filter-bar input{flex:1}.filter-bar input,.filter-bar select,.report-form input,.report-form select,.report-form textarea{border:1px solid #d8e5dc;background:#fff;border-radius:10px;padding:12px 13px;outline:none}.filter-bar input:focus,.report-form input:focus,.report-form select:focus,.report-form textarea:focus{border-color:#6db28b}.bank-summary{display:flex;justify-content:space-between;color:#75877f;font-size:12px;margin-bottom:12px}.verified{color:#3c9667}.bank-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.bank-card{background:#fff;border:1px solid #dfe9e2;border-radius:17px;padding:18px;transition:.2s}.bank-card:hover{transform:translateY(-2px);box-shadow:0 10px 25px #2d654511}.bank-top{display:flex;justify-content:space-between}.bank-type{font-size:10px;font-weight:800;padding:5px 8px;background:#e5f2e9;color:#277852;border-radius:20px}.bank-card h3{font:800 16px Manrope;margin:16px 0 5px}.bank-card p{font-size:12px;color:#73857e;margin:0 0 15px}.bank-meta{display:flex;justify-content:space-between;border-top:1px solid #edf1ee;padding-top:12px;font-size:11px;color:#71847b}.pagination{display:flex;justify-content:center;align-items:center;gap:15px;margin-top:25px}.pagination button{border:1px solid #d9e5dd;background:#fff;border-radius:8px;padding:8px 12px}.report-layout{display:grid;grid-template-columns:1fr 1fr;gap:18px}.report-form form{display:grid;gap:14px;margin-top:18px}.report-form label{display:grid;gap:7px;font-size:12px;font-weight:700;color:#526b60}.two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px}.upload{border:1.5px dashed #bed7c7;padding:18px;border-radius:12px;background:#f7fbf8}.upload input{display:none}.upload span{font-size:13px;color:#287a54}.upload small{display:block;color:#82928c;margin-top:5px;font-weight:400}.report-list{margin-top:15px;max-height:500px;overflow:auto}.report-item{border:1px solid #e5ece7;border-radius:13px;padding:14px;margin-bottom:9px}.report-item b{font-size:13px}.report-item p{font-size:12px;color:#71847b;line-height:1.5}.report-status{font-size:10px;padding:4px 8px;border-radius:15px;background:#fff4dc;color:#9b7220}.report-item .meta{display:flex;justify-content:space-between;color:#91a099;font-size:10px}.badge{background:#e5f2e9;color:#277852;padding:5px 9px;border-radius:20px;font-size:11px}.leaderboard{margin-top:18px}.rank{display:grid;grid-template-columns:35px 1fr auto;gap:12px;align-items:center;padding:13px 0;border-bottom:1px solid #edf1ee}.rank:last-child{border:0}.rank-num{font:800 14px Manrope;color:#6d8278}.rank-name{font-weight:700;font-size:13px}.rank-name small{display:block;font-weight:400;color:#899891;margin-top:3px}.rank-points{font-weight:800;color:#287a54}.profile-hero{background:#0b6044;color:white;border-radius:24px;padding:35px;display:flex;align-items:center;gap:18px}.avatar{width:68px;height:68px;border-radius:21px;background:#a8d9ba;color:#0b6044;display:grid;place-items:center;font:800 19px Manrope}.profile-hero h1{font:800 32px Manrope;margin:5px 0}.profile-hero p{margin:0;color:#b7d5c5}.profile-hero .btn{margin-left:auto}.profile-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}.profile-row{display:flex;justify-content:space-between;padding:16px 0;border-bottom:1px solid #edf2ee;font-size:13px}.profile-row span{color:#809089}.about{line-height:1.7;color:#6e8279}.source-links{display:flex;gap:10px;margin-top:20px}.source-links a{padding:9px 12px;background:#e8f2ea;color:#287852;border-radius:9px;font-weight:700;font-size:12px}footer{padding:30px 5vw;border-top:1px solid #dfe9e2;display:flex;justify-content:space-between;color:#83918b;font-size:11px}.footer-brand{font-weight:800;color:#315c4a;display:flex;gap:7px;align-items:center}.footer-brand .logo-icon{width:25px;height:25px;font-size:14px}.modal{position:fixed;inset:0;background:#0b251dcc;z-index:2000;display:none;place-items:center;padding:20px}.modal.show{display:grid}.modal-box{background:#fff;border-radius:20px;width:min(520px,100%);padding:25px;position:relative}.modal-close{position:absolute;right:16px;top:12px;border:0;background:none;font-size:27px;color:#71837b}.toast{position:fixed;right:20px;bottom:20px;background:#123e30;color:#fff;padding:13px 18px;border-radius:11px;z-index:3000;opacity:0;transform:translateY(10px);transition:.25s;font-size:13px}.toast.show{opacity:1;transform:none}.leaflet-control-attribution{font-size:9px}
+@media(max-width:900px){.desktop-nav{display:none}.mobile-menu{display:block}.hero{grid-template-columns:1fr}.hero-visual{height:430px}.stat-grid,.kpi-row{grid-template-columns:1fr 1fr}.feature-grid,.bank-grid{grid-template-columns:1fr 1fr}.chart-grid,.report-layout,.map-bottom,.profile-grid{grid-template-columns:1fr}.wide{grid-column:auto}.page-title{align-items:flex-start;gap:15px}.page-title h1{font-size:33px}.map-shell{height:500px}}
+@media(max-width:600px){.page{padding-top:35px}.hero h1{font-size:46px;letter-spacing:-2px}.hero-visual{height:370px}.leaf-card{height:330px;padding:38px}.big-number{font-size:46px;margin-top:70px}.floating-stat{right:0;bottom:5px}.stat-grid,.kpi-row,.feature-grid,.bank-grid{grid-template-columns:1fr}.filter-bar,.map-controls{flex-wrap:wrap}.filter-bar>*{width:100%}.two-col{grid-template-columns:1fr}.page-title{display:block}.page-title select,.page-title .btn,.map-controls{margin-top:14px}.map-shell{height:430px}.map-legend{right:8px;bottom:8px}.profile-hero{flex-wrap:wrap}.profile-hero .btn{margin-left:0}footer{display:grid;gap:10px}.section-head{align-items:start}.section-head h2{font-size:27px}}
+
+</style>
+</head>
+<body>
+  <div id="splash" class="splash">
+    <div class="splash-orb orb1"></div><div class="splash-orb orb2"></div>
+    <div class="splash-content">
+      <div class="brand-mark">♻</div>
+      <div class="splash-title">Plastic<span>Bank</span></div>
+      <p>Data. Action. Cleaner Indonesia.</p>
+      <div class="loader"><i></i></div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast"></div>
+
+  <header class="topbar">
+    <a class="logo" href="#home" data-page="home"><span class="logo-icon">♻</span><span>Plastic<span>Bank</span></span></a>
+    <nav class="desktop-nav">
+      <a href="#home" data-page="home">Beranda</a>
+      <a href="#dashboard" data-page="dashboard">Dashboard</a>
+      <a href="#map" data-page="map">Peta</a>
+      <a href="#menu" data-page="menu">Bank Sampah</a>
+      <a href="#reports" data-page="reports">Laporan</a>
+      <a href="#profile" data-page="profile">Profil</a>
+    </nav>
+    <button class="mobile-menu" id="mobileMenu">☰</button>
+  </header>
+
+  <main>
+    <section id="home" class="page active">
+      <div class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="pulse"></span> PLATFORM LINGKUNGAN INDONESIA</div>
+          <h1>Ubah data sampah<br><em>menjadi aksi.</em></h1>
+          <p class="lead">Pantau bank sampah, lihat wilayah berisiko, kirim laporan lingkungan, dan ikut membangun Indonesia yang lebih bersih.</p>
+          <div class="hero-actions">
+            <button class="btn btn-primary" data-page="reports">+ Buat Laporan</button>
+            <button class="btn btn-ghost" data-page="map">Jelajahi Peta →</button>
+          </div>
+          <div class="hero-trust"><span>●</span> Mengacu pada data terbuka SIPSN & SIMBA KLH</div>
+        </div>
+        <div class="hero-visual">
+          <div class="leaf-card">
+            <div class="mini-label">INDONESIA · 2025</div>
+            <div class="big-number">31.2M</div><div class="muted">ton sampah/tahun*</div>
+            <div class="mini-bars"><i style="height:42%"></i><i style="height:65%"></i><i style="height:52%"></i><i style="height:80%"></i><i style="height:60%"></i><i style="height:92%"></i><i style="height:72%"></i></div>
+            <div class="map-dot d1"></div><div class="map-dot d2"></div><div class="map-dot d3"></div>
+          </div>
+          <div class="floating-stat"><b>6,007+</b><span>bank sampah tercatat*</span></div>
+        </div>
+      </div>
+
+      <div class="section-head">
+        <div><span class="eyebrow">OVERVIEW</span><h2>Indonesia dalam satu layar</h2></div>
+        <button class="text-btn" data-page="dashboard">Lihat dashboard →</button>
+      </div>
+      <div class="stat-grid">
+        <article class="stat-card"><span class="stat-icon">◒</span><div><small>Timbulan sampah</small><strong>31.24M <i>ton/thn</i></strong><span class="trend">Data indikatif 2025</span></div></article>
+        <article class="stat-card"><span class="stat-icon">♻</span><div><small>Bank sampah</small><strong>6,007 <i>data fasilitas*</i></strong><span class="trend">SIPSN 2025</span></div></article>
+        <article class="stat-card"><span class="stat-icon">⌁</span><div><small>Sampah terkelola</small><strong>9.93M <i>ton/thn</i></strong><span class="trend">Data indikatif 2025</span></div></article>
+        <article class="stat-card"><span class="stat-icon">!</span><div><small>Wilayah terpantau</small><strong>292 <i>kab/kota*</i></strong><span class="trend">dari 514 kab/kota</span></div></article>
+      </div>
+
+      <div class="feature-grid">
+        <article class="feature-card map-feature" data-page="map"><div class="feature-top"><span class="round-icon">⌖</span><span>01</span></div><h3>Peta Risiko</h3><p>Identifikasi area dengan tekanan sampah plastik tinggi dan temukan bank sampah terdekat.</p><span class="feature-link">Buka peta →</span></article>
+        <article class="feature-card report-feature" data-page="reports"><div class="feature-top"><span class="round-icon">✎</span><span>02</span></div><h3>Lapor & bantu</h3><p>Laporkan penumpukan sampah. Laporan tersimpan di perangkat dan dapat masuk antrean verifikasi.</p><span class="feature-link">Kirim laporan →</span></article>
+        <article class="feature-card bank-feature" data-page="menu"><div class="feature-top"><span class="round-icon">♻</span><span>03</span></div><h3>Bank Sampah</h3><p>Cari fasilitas berdasarkan provinsi, kota, jenis layanan, dan status operasional.</p><span class="feature-link">Cari bank →</span></article>
+      </div>
+      <p class="source-note">*Angka di halaman ini adalah data indikatif yang diadaptasi dari sumber resmi saat proyek dibuat; bukan feed API real-time.</p>
+    </section>
+
+    <section id="dashboard" class="page">
+      <div class="page-title"><div><span class="eyebrow">ANALYTICS</span><h1>Dashboard nasional</h1><p>Ringkasan performa pengelolaan sampah dan bank sampah.</p></div><select id="dashYear"><option>2025</option><option>2024</option></select></div>
+      <div class="kpi-row">
+        <div class="kpi"><span>Timbulan</span><b>31.24M</b><small>ton / tahun</small></div>
+        <div class="kpi"><span>Terkelola</span><b>9.93M</b><small>ton / tahun</small></div>
+        <div class="kpi"><span>Bank Sampah</span><b>6,007</b><small>fasilitas*</small></div>
+        <div class="kpi"><span>Kab/Kota</span><b>292</b><small>terdata*</small></div>
+      </div>
+      <div class="chart-grid">
+        <div class="panel"><div class="panel-head"><div><h3>Komposisi sampah</h3><p>Contoh agregasi nasional</p></div></div><div class="donut-wrap"><canvas id="compositionChart"></canvas><div class="donut-center"><b>Plastik</b><span>≈ 19%</span></div></div></div>
+        <div class="panel"><div class="panel-head"><div><h3>Pengelolaan</h3><p>Terkelola vs belum terkelola</p></div></div><canvas id="managementChart"></canvas></div>
+        <div class="panel wide"><div class="panel-head"><div><h3>Volume sampah plastik — wilayah prioritas</h3><p>Indeks relatif untuk pemantauan, bukan angka resmi timbulan.</p></div><div class="legend"><span class="dot high"></span> Tinggi <span class="dot med"></span> Sedang</div></div><canvas id="cityChart"></canvas></div>
+      </div>
+    </section>
+
+    <section id="map" class="page">
+      <div class="page-title"><div><span class="eyebrow">GEOSPATIAL</span><h1>Peta Indonesia</h1><p>Eksplorasi titik bank sampah dan indeks risiko plastik.</p></div><div class="map-controls"><select id="provinceFilter"><option value="">Semua provinsi</option></select><select id="mapLayer"><option value="risk">Risiko plastik</option><option value="banks">Bank sampah</option></select></div></div>
+      <div class="map-shell"><div id="mapCanvas"></div><div class="map-legend"><b>Indeks risiko</b><span><i class="risk-dot r-low"></i> Rendah</span><span><i class="risk-dot r-med"></i> Sedang</span><span><i class="risk-dot r-high"></i> Tinggi</span><small>Gunakan filter untuk mengeksplorasi wilayah.</small></div></div>
+      <div class="map-bottom"><div class="panel"><h3>Wilayah prioritas</h3><div id="priorityList"></div></div><div class="panel"><h3>Tips aksi</h3><div class="tip"><span>01</span><p>Temukan bank sampah terdekat dan tanyakan jenis plastik yang diterima.</p></div><div class="tip"><span>02</span><p>Laporkan penumpukan sampah dengan foto dan lokasi yang jelas.</p></div><div class="tip"><span>03</span><p>Gunakan data sebagai indikasi; lakukan verifikasi lapangan sebelum mengambil keputusan.</p></div></div></div>
+    </section>
+
+    <section id="menu" class="page">
+      <div class="page-title"><div><span class="eyebrow">DIRECTORY</span><h1>Bank Sampah Indonesia</h1><p>Direktori contoh untuk pencarian dan eksplorasi fasilitas.</p></div><button class="btn btn-primary" id="addBankBtn">+ Tambah fasilitas</button></div>
+      <div class="filter-bar"><input id="bankSearch" placeholder="Cari nama bank sampah atau kota..."><select id="bankProvince"><option value="">Semua provinsi</option></select><select id="bankType"><option value="">Semua jenis</option><option>BSU</option><option>BSI</option></select><button class="btn btn-soft" id="resetBank">Reset</button></div>
+      <div class="bank-summary"><span><b id="bankCount">0</b> hasil</span><span class="verified">✓ Data fasilitas</span></div>
+      <div id="bankGrid" class="bank-grid"></div>
+      <div class="pagination"><button id="prevPage">←</button><span id="pageInfo">1 / 1</span><button id="nextPage">→</button></div>
+    </section>
+
+    <section id="reports" class="page">
+      <div class="page-title"><div><span class="eyebrow">CITIZEN ACTION</span><h1>Laporan lingkungan</h1><p>Laporkan sampah plastik yang kamu temukan agar bisa dipantau.</p></div></div>
+      <div class="report-layout">
+        <div class="panel report-form">
+          <h3>Buat laporan baru</h3>
+          <form id="reportForm">
+            <label>Judul laporan<input required name="title" placeholder="Contoh: Tumpukan botol plastik di sungai"></label>
+            <div class="two-col"><label>Provinsi<select required name="province" id="reportProvince"><option value="">Pilih</option></select></label><label>Kota/Kabupaten<select required name="city" id="reportCity"><option value="">Pilih provinsi dulu</option></select></label></div>
+            <label>Kategori<select name="category"><option>Sampah plastik</option><option>Sungai/selokan</option><option>Pantai/pesisir</option><option>Bank sampah</option><option>Lainnya</option></select></label>
+            <label>Deskripsi<textarea required name="description" rows="4" placeholder="Jelaskan kondisi, perkiraan jumlah, dan dampaknya..."></textarea></label>
+            <div class="two-col"><label>Lat<input name="lat" type="number" step="any" placeholder="-6.2"></label><label>Lng<input name="lng" type="number" step="any" placeholder="106.8"></label></div>
+            <label class="upload"><input name="photo" type="file" accept="image/*"><span>＋ Tambahkan foto (opsional)</span><small>Foto disimpan hanya di perangkat pada versi demo.</small></label>
+            <button class="btn btn-primary full" type="submit">Kirim laporan →</button>
+          </form>
+        </div>
+        <div class="panel"><div class="panel-head"><div><h3>Riwayat laporan</h3><p>Laporan lokal di perangkat ini.</p></div><span class="badge" id="reportBadge">0</span></div><div id="reportList" class="report-list"></div></div>
+      </div>
+      <div class="panel leaderboard"><div class="panel-head"><div><h3>Leaderboard kontribusi</h3><p>Contoh skor komunitas. Jangan gunakan untuk menilai individu secara negatif.</p></div><span>🏆</span></div><div id="leaderboard"></div></div>
+    </section>
+
+    <section id="profile" class="page">
+      <div class="profile-hero"><div class="avatar">PB</div><div><span class="eyebrow">MY PROFILE</span><h1>Profil & kontribusi</h1><p>Kelola identitas komunitas dan preferensi laporan.</p></div><button class="btn btn-soft" id="editProfile">Edit profil</button></div>
+      <div class="profile-grid"><div class="panel"><h3>Profil saya</h3><div class="profile-row"><span>Nama</span><b id="profileName">Pengguna PlasticBank</b></div><div class="profile-row"><span>Kota</span><b id="profileCity">Indonesia</b></div><div class="profile-row"><span>Laporan</span><b id="profileReports">0</b></div><div class="profile-row"><span>Poin</span><b id="profilePoints">0</b></div></div>
+      <div class="panel"><h3>Tentang platform</h3><p class="about">PlasticBank Indonesia adalah prototipe web civic-tech untuk memvisualisasikan data pengelolaan sampah, menyediakan direktori fasilitas, dan membuka kanal pelaporan warga.</p><div class="source-links"><a target="_blank" href="https://sipsn.menlhk.go.id/">SIPSN ↗</a><a target="_blank" href="https://simba.menlhk.go.id/">SIMBA ↗</a></div></div></div>
+    </section>
+  </main>
+
+  <footer><div class="footer-brand"><span class="logo-icon">♻</span> PlasticBank Indonesia</div><p>Built for a cleaner future · Data should lead to action.</p><span>© 2026</span></footer>
+
+  <div class="modal" id="modal"><div class="modal-box"><button class="modal-close" id="modalClose">×</button><div id="modalContent"></div></div></div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script>
+const PROVINCES=["Aceh","Sumatera Utara","Sumatera Barat","Riau","Jambi","Sumatera Selatan","Bengkulu","Lampung","Kepulauan Bangka Belitung","Kepulauan Riau","DKI Jakarta","Jawa Barat","Jawa Tengah","DI Yogyakarta","Jawa Timur","Banten","Bali","Nusa Tenggara Barat","Nusa Tenggara Timur","Kalimantan Barat","Kalimantan Tengah","Kalimantan Selatan","Kalimantan Timur","Kalimantan Utara","Sulawesi Utara","Sulawesi Tengah","Sulawesi Selatan","Sulawesi Tenggara","Gorontalo","Sulawesi Barat","Maluku","Maluku Utara","Papua","Papua Barat","Papua Selatan","Papua Tengah","Papua Pegunungan","Papua Barat Daya"];
+const CITIES={
+"Aceh":["Banda Aceh","Aceh Besar","Aceh Utara","Aceh Timur"],"Sumatera Utara":["Medan","Deli Serdang","Binjai","Pematangsiantar"],"Sumatera Barat":["Padang","Bukittinggi","Padang Pariaman"],"Riau":["Pekanbaru","Dumai","Kampar"],"Jambi":["Jambi","Batanghari","Muaro Jambi"],"Sumatera Selatan":["Palembang","Banyuasin","Ogan Ilir"],"Bengkulu":["Bengkulu","Rejang Lebong"],"Lampung":["Bandar Lampung","Metro","Lampung Selatan"],"Kepulauan Bangka Belitung":["Pangkalpinang","Bangka","Belitung"],"Kepulauan Riau":["Batam","Tanjungpinang","Bintan"],"DKI Jakarta":["Jakarta Pusat","Jakarta Selatan","Jakarta Timur","Jakarta Barat","Jakarta Utara"],"Jawa Barat":["Bandung","Bekasi","Bogor","Depok","Cirebon","Tasikmalaya","Garut","Karawang"],"Jawa Tengah":["Semarang","Surakarta","Magelang","Tegal","Cilacap","Banyumas"],"DI Yogyakarta":["Yogyakarta","Sleman","Bantul","Kulon Progo"],"Jawa Timur":["Surabaya","Malang","Sidoarjo","Gresik","Kediri","Jember"],"Banten":["Tangerang","Tangerang Selatan","Serang","Cilegon","Lebak"],"Bali":["Denpasar","Badung","Gianyar","Buleleng"],"Nusa Tenggara Barat":["Mataram","Lombok Barat","Lombok Timur"],"Nusa Tenggara Timur":["Kupang","Ende","Maumere"],"Kalimantan Barat":["Pontianak","Singkawang","Kubu Raya"],"Kalimantan Tengah":["Palangka Raya","Kotawaringin Timur"],"Kalimantan Selatan":["Banjarmasin","Banjarbaru","Banjar"],"Kalimantan Timur":["Samarinda","Balikpapan","Kutai Kartanegara"],"Kalimantan Utara":["Tarakan","Nunukan","Bulungan"],"Sulawesi Utara":["Manado","Bitung","Tomohon"],"Sulawesi Tengah":["Palu","Donggala","Poso"],"Sulawesi Selatan":["Makassar","Gowa","Maros","Parepare"],"Sulawesi Tenggara":["Kendari","Baubau","Kolaka"],"Gorontalo":["Gorontalo","Bone Bolango"],"Sulawesi Barat":["Mamuju","Majene","Polewali Mandar"],"Maluku":["Ambon","Tual","Maluku Tengah"],"Maluku Utara":["Ternate","Tidore","Halmahera Barat"],"Papua":["Jayapura","Biak Numfor","Merauke"],"Papua Barat":["Manokwari","Fakfak","Kaimana"],"Papua Selatan":["Merauke","Asmat","Boven Digoel"],"Papua Tengah":["Nabire","Mimika","Paniai"],"Papua Pegunungan":["Jayawijaya","Yahukimo","Pegunungan Bintang"],"Papua Barat Daya":["Sorong","Raja Ampat","Sorong Selatan"]};
+const BANKS=[
+["BSU PERCAGALUH","Aceh","Aceh Besar","BSU","A"],["BSU Persada Yonif 117","Aceh","Aceh Besar","BSU","A"],["Bank Sampah Bina Bersama","Aceh","Aceh Besar","BSU","A"],["Bank Sampah Berseri","Sumatera Utara","Medan","BSU","A"],["BSI Medan Bersih","Sumatera Utara","Medan","BSI","A"],["Bank Sampah Andalan","Sumatera Barat","Padang","BSU","A"],["BSU Green Riau","Riau","Pekanbaru","BSU","A"],["Bank Sampah Jambi Lestari","Jambi","Jambi","BSU","A"],["Bank Sampah Musi Hijau","Sumatera Selatan","Palembang","BSI","A"],["Bank Sampah Bengkulu Sehat","Bengkulu","Bengkulu","BSU","A"],["Bank Sampah Lampung Berjaya","Lampung","Bandar Lampung","BSI","A"],["Bank Sampah Batam Bersih","Kepulauan Riau","Batam","BSU","A"],["Bank Sampah Jakarta Hijau","DKI Jakarta","Jakarta Selatan","BSI","A"],["Bank Sampah Ciliwung","DKI Jakarta","Jakarta Timur","BSU","A"],["Bank Sampah Bandung Juara","Jawa Barat","Bandung","BSI","A"],["Bank Sampah Bekasi Lestari","Jawa Barat","Bekasi","BSU","A"],["Bank Sampah Bogor Asri","Jawa Barat","Bogor","BSU","A"],["Bank Sampah Cirebon Resik","Jawa Barat","Cirebon","BSU","B"],["Bank Sampah Semarang Hebat","Jawa Tengah","Semarang","BSI","A"],["Bank Sampah Solo Berseri","Jawa Tengah","Surakarta","BSU","A"],["Bank Sampah Jogja Hijau","DI Yogyakarta","Yogyakarta","BSI","A"],["Bank Sampah Surabaya Green","Jawa Timur","Surabaya","BSI","A"],["Bank Sampah Malang Bersih","Jawa Timur","Malang","BSU","A"],["Bank Sampah Sidoarjo Asri","Jawa Timur","Sidoarjo","BSU","A"],["Bank Sampah Tangerang Lestari","Banten","Tangerang","BSI","A"],["Bank Sampah Serang Berkah","Banten","Serang","BSU","B"],["Bank Sampah Bali Resik","Bali","Denpasar","BSI","A"],["Bank Sampah Mataram Hijau","Nusa Tenggara Barat","Mataram","BSU","A"],["Bank Sampah Kupang Bersih","Nusa Tenggara Timur","Kupang","BSU","B"],["Bank Sampah Pontianak Lestari","Kalimantan Barat","Pontianak","BSU","A"],["Bank Sampah Borneo Hijau","Kalimantan Timur","Samarinda","BSI","A"],["Bank Sampah Banjarmasin Resik","Kalimantan Selatan","Banjarmasin","BSU","A"],["Bank Sampah Manado Eco","Sulawesi Utara","Manado","BSU","A"],["Bank Sampah Makassar Bersih","Sulawesi Selatan","Makassar","BSI","A"],["Bank Sampah Kendari Hijau","Sulawesi Tenggara","Kendari","BSU","B"],["Bank Sampah Ambon Lestari","Maluku","Ambon","BSU","A"],["Bank Sampah Ternate Bersih","Maluku Utara","Ternate","BSU","A"],["Bank Sampah Jayapura Hijau","Papua","Jayapura","BSU","B"],["Bank Sampah Sorong Lestari","Papua Barat Daya","Sorong","BSU","A"]
+];
+const RISKS=[["Jakarta", -6.2,106.82,92,"Tinggi"],["Bekasi",-6.24,107.0,88,"Tinggi"],["Bandung",-6.91,107.61,81,"Tinggi"],["Semarang",-6.97,110.42,76,"Tinggi"],["Surabaya",-7.25,112.75,84,"Tinggi"],["Medan",3.59,98.67,73,"Tinggi"],["Makassar",-5.14,119.42,70,"Tinggi"],["Denpasar",-8.65,115.22,62,"Sedang"],["Palembang",-2.99,104.76,68,"Sedang"],["Banjarmasin",-3.32,114.59,65,"Sedang"],["Pontianak",-0.02,109.34,61,"Sedang"],["Pekanbaru",0.51,101.45,58,"Sedang"],["Padang",-0.95,100.35,55,"Sedang"],["Manado",1.47,124.84,49,"Sedang"],["Jayapura",-2.53,140.72,42,"Rendah"],["Kupang",-10.17,123.61,44,"Rendah"],["Ambon",-3.7,128.18,46,"Rendah"]];
+let map, markers=[], currentBankPage=1; const perPage=9;
+const $=s=>document.querySelector(s), $$=s=>document.querySelectorAll(s);
+function toast(msg){let t=$("#toast");t.textContent=msg;t.classList.add("show");setTimeout(()=>t.classList.remove("show"),2800)}
+function populateSelects(){
+  ["provinceFilter","bankProvince","reportProvince"].forEach(id=>{let el=$("#"+id);PROVINCES.forEach(p=>el.insertAdjacentHTML("beforeend",`<option>${p}</option>`))});
+}
+function setupCities(){
+  $("#reportProvince").addEventListener("change",e=>{let c=$("#reportCity");c.innerHTML='<option value="">Pilih kota</option>'+(CITIES[e.target.value]||[]).map(x=>`<option>${x}</option>`).join("")});
+}
+function navigate(page){location.hash=page}
+function renderPage(){
+  let page=location.hash.slice(1)||"home";if(!$("#"+page))page="home";
+  $$(".page").forEach(p=>p.classList.toggle("active",p.id===page));$$(".desktop-nav a").forEach(a=>a.classList.toggle("active",a.dataset.page===page));
+  if(page==="map")setTimeout(initMap,50); if(page==="dashboard")setTimeout(initCharts,50); if(page==="menu")renderBanks();if(page==="reports")renderReports();
+  window.scrollTo(0,0)
+}
+document.addEventListener("click",e=>{let el=e.target.closest("[data-page]");if(el){e.preventDefault();navigate(el.dataset.page)}})
+function initMap(){
+  if(map){map.invalidateSize();return}
+  map=L.map("mapCanvas").setView([-2.5,118],4.7);L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{attribution:"© OpenStreetMap contributors"}).addTo(map);drawMap()
+}
+function riskColor(score){return score>=75?"#e66d55":score>=50?"#e3b74f":"#5cb982"}
+function drawMap(){
+  markers.forEach(m=>map.removeLayer(m));markers=[];
+  let layer=$("#mapLayer").value; let province=$("#provinceFilter").value;
+  RISKS.forEach(r=>{let [name,lat,lng,score,label]=r;if(layer==="risk"){let c=L.circle([lat,lng],{radius:Math.max(18000,score*480),color:riskColor(score),fillColor:riskColor(score),fillOpacity:.28,weight:1}).addTo(map).bindPopup(`<b>${name}</b><br>Indeks risiko: ${score}/100<br>Status: ${label}`);markers.push(c)}else{let c=L.circleMarker([lat,lng],{radius:9,color:"#fff",weight:2,fillColor:"#0b7651",fillOpacity:.9}).addTo(map).bindPopup(`<b>Bank sampah sekitar ${name}</b><br>Gunakan direktori untuk daftar fasilitas.`);markers.push(c)}});
+  if(province){let sample=BANKS.find(b=>b[1]===province);if(sample){let r=RISKS.find(x=>x[0].toLowerCase().includes(sample[2].split(" ")[0].toLowerCase()))||RISKS.find(x=>x[0]===sample[2]);if(r)map.setView([r[1],r[2]],8)}}}
+function renderPriority(){let data=[...RISKS].sort((a,b)=>b[3]-a[3]).slice(0,6);$("#priorityList").innerHTML=data.map(r=>`<div class="priority"><b>${r[0]}</b><span><span class="risk-label">${r[4]}</span> ${r[3]}/100</span></div>`).join("")}
+function initCharts(){
+  if(window._charts)return;window._charts=true;
+  new Chart($("#compositionChart"),{type:"doughnut",data:{labels:["Organik","Plastik","Kertas","Lainnya"],datasets:[{data:[41,19,12,28]}]},options:{cutout:"72%",plugins:{legend:{position:"bottom",labels:{usePointStyle:true,font:{size:10}}}}}});
+  new Chart($("#managementChart"),{type:"bar",data:{labels:["Terkelola","Tidak terkelola"],datasets:[{data:[31.8,68.2],borderRadius:8}]},options:{plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,max:100,ticks:{callback:v=>v+"%"}}}}});
+  let top=RISKS.slice(0,7);new Chart($("#cityChart"),{type:"bar",data:{labels:top.map(x=>x[0]),datasets:[{label:"Indeks",data:top.map(x=>x[3]),borderRadius:7}]},options:{plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,max:100}}}});
+}
+function bankFiltered(){let q=$("#bankSearch").value.toLowerCase(),p=$("#bankProvince").value,t=$("#bankType").value;return BANKS.filter(b=>(!q||b.join(" ").toLowerCase().includes(q))&&(!p||b[1]===p)&&(!t||b[3]===t))}
+function renderBanks(){let data=bankFiltered(),pages=Math.max(1,Math.ceil(data.length/perPage));currentBankPage=Math.min(currentBankPage,pages);let start=(currentBankPage-1)*perPage;$("#bankCount").textContent=data.length;$("#pageInfo").textContent=`${currentBankPage} / ${pages}`;$("#bankGrid").innerHTML=data.slice(start,start+perPage).map((b,i)=>`<article class="bank-card"><div class="bank-top"><span class="bank-type">${b[3]}</span><span style="font-size:10px;color:#3d9767">● ${b[4]==="A"?"Aktif":"Perlu cek"}</span></div><h3>${b[0]}</h3><p>${b[2]}, ${b[1]}</p><div class="bank-meta"><span>♻ Fasilitas</span><span>Detail →</span></div></article>`).join("")||'<div class="panel" style="grid-column:1/-1">Tidak ada data yang cocok.</div>'}
+function getReports(){return JSON.parse(localStorage.getItem("pb_reports")||"[]")}
+function saveReports(x){localStorage.setItem("pb_reports",JSON.stringify(x))}
+function renderReports(){let data=getReports();$("#reportBadge").textContent=data.length;$("#profileReports").textContent=data.length;$("#profilePoints").textContent=data.length*10;$("#reportList").innerHTML=data.length?data.slice().reverse().map(r=>`<div class="report-item"><div style="display:flex;justify-content:space-between;gap:8px"><b>${escapeHtml(r.title)}</b><span class="report-status">Menunggu verifikasi</span></div><p>${escapeHtml(r.description).slice(0,140)}${r.description.length>140?"…":""}</p><div class="meta"><span>${r.city}, ${r.province}</span><span>${new Date(r.date).toLocaleDateString("id-ID")}</span></div></div>`).join(""):'<p style="font-size:12px;color:#87958f;padding:20px 0">Belum ada laporan. Jadilah kontributor pertama.</p>';renderLeaderboard(data)}
+function renderLeaderboard(data){let base=[["Eco Ranger","Jakarta",142],["Hijau Bersama","Bandung",118],["Sahabat Sungai","Surabaya",96],["Bumi Lestari","Medan",74],["Pengguna PlasticBank","Indonesia",data.length*10]];base.sort((a,b)=>b[2]-a[2]);$("#leaderboard").innerHTML=base.map((r,i)=>`<div class="rank"><span class="rank-num">#${i+1}</span><div class="rank-name">${r[0]}<small>${r[1]}</small></div><span class="rank-points">${r[2]} pts</span></div>`).join("")}
+function escapeHtml(s){return s.replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
+$("#reportForm").addEventListener("submit",e=>{e.preventDefault();let fd=new FormData(e.target),reports=getReports();reports.push({title:fd.get("title"),province:fd.get("province"),city:fd.get("city"),category:fd.get("category"),description:fd.get("description"),lat:fd.get("lat"),lng:fd.get("lng"),date:new Date().toISOString()});saveReports(reports);e.target.reset();$("#reportCity").innerHTML='<option value="">Pilih provinsi dulu</option>';renderReports();toast("Laporan berhasil disimpan di perangkat ini.");})
+["bankSearch","bankProvince","bankType"].forEach(id=>$("#"+id).addEventListener("input",()=>{currentBankPage=1;renderBanks()}));$("#resetBank").onclick=()=>{$("#bankSearch").value="";$("#bankProvince").value="";$("#bankType").value="";renderBanks()};$("#prevPage").onclick=()=>{currentBankPage--;renderBanks()};$("#nextPage").onclick=()=>{currentBankPage++;renderBanks()};$("#mapLayer").addEventListener("change",drawMap);$("#provinceFilter").addEventListener("change",drawMap);
+$("#addBankBtn").onclick=()=>showModal(`<span class="eyebrow">KONTRIBUSI DATA</span><h2 style="font-family:Manrope">Tambah fasilitas</h2><p style="color:#71857b">Versi demo belum mengirim data ke server. Form ini dapat dihubungkan ke Supabase/Firebase pada tahap produksi.</p><button class="btn btn-primary full" onclick="closeModal()">Mengerti</button>`);
+$("#editProfile").onclick=()=>{let n=prompt("Nama tampilan:",$("#profileName").textContent);if(n){$("#profileName").textContent=n;localStorage.setItem("pb_name",n);toast("Profil diperbarui.")}};
+function showModal(html){$("#modalContent").innerHTML=html;$("#modal").classList.add("show")}function closeModal(){$("#modal").classList.remove("show")}$("#modalClose").onclick=closeModal;$("#modal").addEventListener("click",e=>{if(e.target.id==="modal")closeModal()});
+$("#mobileMenu").onclick=()=>{let n=$(".desktop-nav");n.style.display=n.style.display==="flex"?"none":"flex";n.style.position="absolute";n.style.top="74px";n.style.right="5vw";n.style.flexDirection="column";n.style.background="#fff";n.style.padding="10px";n.style.borderRadius="12px";n.style.boxShadow="0 15px 35px #0002"};
+populateSelects();setupCities();renderPriority();$("#profileName").textContent=localStorage.getItem("pb_name")||"Pengguna PlasticBank";window.addEventListener("hashchange",renderPage);setTimeout(()=>{$("#splash").style.opacity="0";$("#splash").style.pointerEvents="none";setTimeout(()=>$("#splash").remove(),500);renderPage()},1300);
+
+</script>
+</body>
+</html>

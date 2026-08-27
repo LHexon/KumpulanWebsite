@@ -1,0 +1,14 @@
+{
+  "project": "PlasticBank Indonesia",
+  "version": "1.0-demo",
+  "dataMode": "static-demo",
+  "sources": {
+    "sipsn": "https://sipsn.menlhk.go.id/",
+    "simba": "https://simba.menlhk.go.id/"
+  },
+  "productionNotes": [
+    "Replace static BANKS and RISKS with verified API/database data.",
+    "Use a server-side credential for privileged database operations.",
+    "Do not expose service-role secrets in GitHub Pages."
+  ]
+}
