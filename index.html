@@ -223,6 +223,32 @@ window.addEventListener("load", function () {
     }, 1500);
 });
 </script>
+
+  <script>
+(function () {
+    function closeSplash() {
+        const splash = document.getElementById("splash");
+
+        if (!splash) return;
+
+        splash.classList.add("hidden");
+
+        setTimeout(function () {
+            if (splash && splash.parentNode) {
+                splash.parentNode.removeChild(splash);
+            }
+        }, 600);
+    }
+
+    // Normal
+    window.addEventListener("load", function () {
+        setTimeout(closeSplash, 1200);
+    });
+
+    // Fallback kalau ada JavaScript/library lain yang error
+    setTimeout(closeSplash, 3000);
+})();
+</script>
   
 </body>
 </html>
