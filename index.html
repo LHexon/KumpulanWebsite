@@ -206,5 +206,23 @@ $("#mobileMenu").onclick=()=>{let n=$(".desktop-nav");n.style.display=n.style.di
 populateSelects();setupCities();renderPriority();$("#profileName").textContent=localStorage.getItem("pb_name")||"Pengguna PlasticBank";window.addEventListener("hashchange",renderPage);setTimeout(()=>{$("#splash").style.opacity="0";$("#splash").style.pointerEvents="none";setTimeout(()=>$("#splash").remove(),500);renderPage()},1300);
 
 </script>
+  
+    <script>
+window.addEventListener("load", function () {
+    setTimeout(function () {
+        const splash = document.getElementById("splash");
+
+        if (splash) {
+            splash.style.opacity = "0";
+            splash.style.pointerEvents = "none";
+
+            setTimeout(function () {
+                splash.remove();
+            }, 500);
+        }
+    }, 1500);
+});
+</script>
+  
 </body>
 </html>
